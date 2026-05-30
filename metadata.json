@@ -1,0 +1,6 @@
+{
+  "name": "李東記肉骨茶點單系統",
+  "description": "李東記肉骨茶專賣店的前後台點單與售量分析展示系統",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
