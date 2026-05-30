@@ -1,0 +1,44 @@
+{
+  "entities": {
+    "Order": {
+      "title": "Order",
+      "description": "Represents a customer order at the restaurant.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "tableNo": { "type": "string" },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "preparing", "completed", "cancelled"]
+        },
+        "utensils": { "type": "string" },
+        "totalPrice": { "type": "number" },
+        "items": { "type": "array" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["tableNo", "status", "utensils", "totalPrice", "items"]
+    },
+    "AdminConfig": {
+      "title": "AdminConfig",
+      "description": "Stores the administrative configurations such as access passwords.",
+      "type": "object",
+      "properties": {
+        "password": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["password"]
+    }
+  },
+  "firestore": {
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Active and historical restaurant orders"
+    },
+    "/configs/admin": {
+      "schema": "AdminConfig",
+      "description": "System configuration and administrative credentials"
+    }
+  }
+}
